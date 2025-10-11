@@ -10,13 +10,9 @@ const MLModelPlayground = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <div className="container mx-auto px-4 pt-32 pb-20">
-        <Button
-          variant="ghost"
-          onClick={() => navigate("/")}
-          className="mb-6"
-        >
+        <Button variant="ghost" onClick={() => navigate("/")} className="mb-6">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Tools
         </Button>
@@ -38,7 +34,8 @@ const MLModelPlayground = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Train, test, and tweak machine learning models in your browser with live code blocks and visualization tools.
+                Train, test, and tweak machine learning models in your browser with live code blocks and visualization
+                tools.
               </p>
             </CardContent>
           </Card>
@@ -78,7 +75,9 @@ const MLModelPlayground = () => {
                 <li className="text-base">Quickstart PDF</li>
                 <li className="text-base">Sample datasets provided</li>
                 <li className="text-base">Link to GitHub and code examples</li>
-                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
+                <li className="text-base font-medium text-foreground">
+                  When you launch the tool, you'll need to provide your app link to get started
+                </li>
               </ul>
             </CardContent>
           </Card>
@@ -101,10 +100,10 @@ const MLModelPlayground = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
-              onClick={() => window.open('https://github.com/marvex-ai/ml-playground-docs', '_blank')}
+              onClick={() => window.open("https://github.com/ALBURYk/ml-playground-docs", "_blank")}
             >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
