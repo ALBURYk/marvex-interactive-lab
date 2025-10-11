@@ -78,12 +78,12 @@ const Auth = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-secondary">
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="p-3 rounded-lg bg-primary shadow-lg">
             <Brain className="h-8 w-8 text-primary-foreground" />
           </div>
-          <span className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            MarVex
+          <span className="text-3xl font-bold text-foreground">
+            Mar<span className="text-primary">Vex</span>
           </span>
         </div>
 
