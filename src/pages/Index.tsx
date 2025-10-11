@@ -35,6 +35,7 @@ const Index = () => {
       technology: "TensorFlow.js",
       restrictions: "Requires WebGL support. Maximum 5 layers for optimal performance.",
       icon: <Brain className="h-6 w-6" />,
+      path: "/tools/neural-network",
     },
     {
       title: "Robot Path Planner",
@@ -42,6 +43,7 @@ const Index = () => {
       technology: "A* Algorithm",
       restrictions: "Grid size limited to 100x100 for performance reasons.",
       icon: <Bot className="h-6 w-6" />,
+      path: "/tools/robot-path",
     },
     {
       title: "Computer Vision Studio",
@@ -49,6 +51,7 @@ const Index = () => {
       technology: "MediaPipe + TensorFlow",
       restrictions: "Camera access required. Works best with good lighting conditions.",
       icon: <Cpu className="h-6 w-6" />,
+      path: "/tools/computer-vision",
     },
     {
       title: "ML Model Playground",
@@ -56,6 +59,7 @@ const Index = () => {
       technology: "ONNX Runtime",
       restrictions: "Model size limited to 50MB for web compatibility.",
       icon: <Zap className="h-6 w-6" />,
+      path: "/tools/ml-playground",
     },
   ];
 
@@ -141,7 +145,7 @@ const Index = () => {
                 technology={tool.technology}
                 restrictions={tool.restrictions}
                 icon={tool.icon}
-                onLearnMore={() => console.log(`Learning more about ${tool.title}`)}
+                onLearnMore={() => navigate(tool.path)}
               />
             ))}
           </div>
