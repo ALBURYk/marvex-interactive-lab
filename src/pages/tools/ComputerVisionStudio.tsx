@@ -10,13 +10,9 @@ const ComputerVisionStudio = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <div className="container mx-auto px-4 pt-32 pb-20">
-        <Button
-          variant="ghost"
-          onClick={() => navigate("/")}
-          className="mb-6"
-        >
+        <Button variant="ghost" onClick={() => navigate("/")} className="mb-6">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Tools
         </Button>
@@ -38,7 +34,8 @@ const ComputerVisionStudio = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Upload images or live video to run object detection, image classification, or face recognition using pretrained models.
+                Upload images or live video to run object detection, image classification, or face recognition using
+                pretrained models.
               </p>
             </CardContent>
           </Card>
@@ -79,7 +76,9 @@ const ComputerVisionStudio = () => {
                 <li className="text-base">Usage instructions (PDF)</li>
                 <li className="text-base">Tutorials for training custom models</li>
                 <li className="text-base">Ethical guidelines for computer vision use</li>
-                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
+                <li className="text-base font-medium text-foreground">
+                  When you launch the tool, you'll need to provide your app link to get started
+                </li>
               </ul>
             </CardContent>
           </Card>
@@ -102,10 +101,10 @@ const ComputerVisionStudio = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
-              onClick={() => window.open('https://github.com/marvex-ai/computer-vision-docs', '_blank')}
+              onClick={() => window.open("https://github.com/ALBURYk/computer-vision-docs", "_blank")}
             >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
