@@ -7,10 +7,10 @@ export const Navigation = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-lg gradient-primary">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-secondary">
               <Brain className="h-6 w-6 text-primary-foreground" />
             </div>
-            <span className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               MarVex
             </span>
           </div>

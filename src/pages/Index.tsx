@@ -63,7 +63,7 @@ const Index = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Welcome to{" "}
-              <span className="gradient-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 MarVex
               </span>
             </h1>
