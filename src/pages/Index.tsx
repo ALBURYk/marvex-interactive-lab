@@ -86,7 +86,7 @@ const Index = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-foreground">
               Welcome to{" "}
-              <span className="text-primary">
+              <span className="text-primary animate-glow drop-shadow-[0_0_25px_hsl(var(--primary))]">
                 MarVex
               </span>
             </h1>
@@ -100,17 +100,7 @@ const Index = () => {
               <Button 
                 variant="hero" 
                 size="lg" 
-                className="text-lg"
-                onClick={handleGetStarted}
-                title="Begin your journey into Machine Learning and Robotics"
-              >
-                <Brain className="h-5 w-5" />
-                Get Started
-              </Button>
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                className="text-lg"
+                className="text-lg shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.7)] animate-glow"
                 onClick={handleExploreTools}
                 title="Try out our AI and robotics tools — fully interactive and ready to use"
               >

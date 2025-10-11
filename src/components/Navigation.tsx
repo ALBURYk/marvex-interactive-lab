@@ -12,11 +12,11 @@ export const Navigation = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
-            <div className="p-2 rounded-lg bg-primary shadow-lg">
+            <div className="p-2 rounded-lg bg-primary shadow-[0_0_25px_hsl(var(--primary)/0.6)] animate-glow">
               <Brain className="h-7 w-7 text-primary-foreground" />
             </div>
             <span className="text-2xl font-bold text-foreground">
-              Mar<span className="text-primary">Vex</span>
+              Mar<span className="text-primary drop-shadow-[0_0_15px_hsl(var(--primary))] animate-glow">Vex</span>
             </span>
           </div>
           <div className="hidden md:flex items-center gap-6">
