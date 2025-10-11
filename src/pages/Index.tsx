@@ -3,8 +3,31 @@ import { ToolCard } from "@/components/ToolCard";
 import { Button } from "@/components/ui/button";
 import { Brain, Cpu, Bot, Zap, BookOpen, Sparkles } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Index = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    if (user) {
+      toast.info("You're already signed in! Start exploring our tools.");
+    } else {
+      navigate("/auth");
+    }
+  };
+
+  const handleExploreTools = () => {
+    const toolsSection = document.getElementById("tools");
+    toolsSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleStartLearning = () => {
+    const learnSection = document.getElementById("learn");
+    learnSection?.scrollIntoView({ behavior: "smooth" });
+  };
   const featuredTools = [
     {
       title: "Neural Network Visualizer",
@@ -74,11 +97,33 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="text-lg">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="text-lg"
+                onClick={handleGetStarted}
+                title="Begin your journey into Machine Learning and Robotics"
+              >
                 <Brain className="h-5 w-5" />
+                Get Started
+              </Button>
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="text-lg"
+                onClick={handleExploreTools}
+                title="Try out our AI and robotics tools — fully interactive and ready to use"
+              >
+                <Cpu className="h-5 w-5" />
                 Explore Tools
               </Button>
-              <Button variant="outline" size="lg" className="text-lg border-primary/50 hover:bg-primary/10">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg border-primary/50 hover:bg-primary/10"
+                onClick={handleStartLearning}
+                title="Access guides and tutorials to build your skills from beginner to advanced"
+              >
                 <BookOpen className="h-5 w-5" />
                 Start Learning
               </Button>
