@@ -10,13 +10,9 @@ const NeuralNetworkVisualizer = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <div className="container mx-auto px-4 pt-32 pb-20">
-        <Button
-          variant="ghost"
-          onClick={() => navigate("/")}
-          className="mb-6"
-        >
+        <Button variant="ghost" onClick={() => navigate("/")} className="mb-6">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Tools
         </Button>
@@ -38,7 +34,8 @@ const NeuralNetworkVisualizer = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Visualize how a neural network processes data. Customize the number of layers, nodes, and activation functions. Great for learning and debugging models.
+                Visualize how a neural network processes data. Customize the number of layers, nodes, and activation
+                functions. Great for learning and debugging models.
               </p>
             </CardContent>
           </Card>
@@ -78,7 +75,9 @@ const NeuralNetworkVisualizer = () => {
                 <li className="text-base">Step-by-step guide available in PDF</li>
                 <li className="text-base">Interactive demo video (5 minutes)</li>
                 <li className="text-base">Link to GitHub repo for developers</li>
-                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
+                <li className="text-base font-medium text-foreground">
+                  When you launch the tool, you'll need to provide your app link to get started
+                </li>
               </ul>
             </CardContent>
           </Card>
@@ -101,10 +100,10 @@ const NeuralNetworkVisualizer = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
-              onClick={() => window.open('https://github.com/marvex-ai/neural-network-docs', '_blank')}
+              onClick={() => window.open("https://github.com/ALBURYk/neural-network-docs", "_blank")}
             >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
