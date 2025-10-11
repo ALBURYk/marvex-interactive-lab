@@ -10,13 +10,9 @@ const RobotPathPlanner = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <div className="container mx-auto px-4 pt-32 pb-20">
-        <Button
-          variant="ghost"
-          onClick={() => navigate("/")}
-          className="mb-6"
-        >
+        <Button variant="ghost" onClick={() => navigate("/")} className="mb-6">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Tools
         </Button>
@@ -78,7 +74,9 @@ const RobotPathPlanner = () => {
                 <li className="text-base">Full user manual (PDF)</li>
                 <li className="text-base">Example projects included</li>
                 <li className="text-base">Setup video for custom maps</li>
-                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
+                <li className="text-base font-medium text-foreground">
+                  When you launch the tool, you'll need to provide your app link to get started
+                </li>
               </ul>
             </CardContent>
           </Card>
@@ -101,10 +99,10 @@ const RobotPathPlanner = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
-              onClick={() => window.open('https://github.com/ALBURYk/robot-path-docs'_blank')}
+              onClick={() => window.open("https://github.com/ALBURYk/robot-path-docs", "_blank")}
             >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
