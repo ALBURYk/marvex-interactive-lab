@@ -48,11 +48,11 @@ const NeuralNetworkVisualizer = () => {
               <CardTitle>How to Use</CardTitle>
             </CardHeader>
             <CardContent>
-              <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-                <li>Select the number of input, hidden, and output layers.</li>
-                <li>Choose activation functions (e.g., ReLU, sigmoid).</li>
-                <li>Upload sample data or use the default test set.</li>
-                <li>Click "Run" to see the network activate in real time.</li>
+              <ol className="list-decimal list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Select the number of input, hidden, and output layers</li>
+                <li className="text-base">Choose activation functions (e.g., ReLU, sigmoid)</li>
+                <li className="text-base">Upload sample data or use the default test set</li>
+                <li className="text-base">Click "Run" to see the network activate in real time</li>
               </ol>
             </CardContent>
           </Card>
@@ -74,10 +74,11 @@ const NeuralNetworkVisualizer = () => {
               <CardTitle>Documentation & Tutorial</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>Step-by-step guide available in PDF</li>
-                <li>Interactive demo video (5 minutes)</li>
-                <li>Link to GitHub repo for developers</li>
+              <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Step-by-step guide available in PDF</li>
+                <li className="text-base">Interactive demo video (5 minutes)</li>
+                <li className="text-base">Link to GitHub repo for developers</li>
+                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
               </ul>
             </CardContent>
           </Card>
@@ -100,7 +101,11 @@ const NeuralNetworkVisualizer = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button size="lg" variant="outline">
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => window.open('https://github.com/marvex-ai/neural-network-docs', '_blank')}
+            >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
             </Button>

@@ -48,11 +48,11 @@ const ComputerVisionStudio = () => {
               <CardTitle>How to Use</CardTitle>
             </CardHeader>
             <CardContent>
-              <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-                <li>Choose a task (e.g., object detection, image labeling)</li>
-                <li>Upload image or allow webcam access</li>
-                <li>Select a model (YOLOv5, MobileNet, etc.)</li>
-                <li>View results and download output if needed</li>
+              <ol className="list-decimal list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Choose a task (e.g., object detection, image labeling)</li>
+                <li className="text-base">Upload image or allow webcam access</li>
+                <li className="text-base">Select a model (YOLOv5, MobileNet, etc.)</li>
+                <li className="text-base">View results and download output if needed</li>
               </ol>
             </CardContent>
           </Card>
@@ -75,10 +75,11 @@ const ComputerVisionStudio = () => {
               <CardTitle>Documentation & Tutorial</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>Usage instructions (PDF)</li>
-                <li>Tutorials for training custom models</li>
-                <li>Ethical guidelines for computer vision use</li>
+              <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Usage instructions (PDF)</li>
+                <li className="text-base">Tutorials for training custom models</li>
+                <li className="text-base">Ethical guidelines for computer vision use</li>
+                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
               </ul>
             </CardContent>
           </Card>
@@ -101,7 +102,11 @@ const ComputerVisionStudio = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button size="lg" variant="outline">
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => window.open('https://github.com/marvex-ai/computer-vision-docs', '_blank')}
+            >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
             </Button>

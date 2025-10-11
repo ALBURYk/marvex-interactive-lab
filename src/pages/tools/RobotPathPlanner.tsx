@@ -48,11 +48,11 @@ const RobotPathPlanner = () => {
               <CardTitle>How to Use</CardTitle>
             </CardHeader>
             <CardContent>
-              <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-                <li>Choose your environment map or upload your own</li>
-                <li>Set the robot's start and end points</li>
-                <li>Select a path planning algorithm</li>
-                <li>Click "Plan Path" to visualize the result</li>
+              <ol className="list-decimal list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Choose your environment map or upload your own</li>
+                <li className="text-base">Set the robot's start and end points</li>
+                <li className="text-base">Select a path planning algorithm</li>
+                <li className="text-base">Click "Plan Path" to visualize the result</li>
               </ol>
             </CardContent>
           </Card>
@@ -74,10 +74,11 @@ const RobotPathPlanner = () => {
               <CardTitle>Documentation & Tutorial</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>Full user manual (PDF)</li>
-                <li>Example projects included</li>
-                <li>Setup video for custom maps</li>
+              <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Full user manual (PDF)</li>
+                <li className="text-base">Example projects included</li>
+                <li className="text-base">Setup video for custom maps</li>
+                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
               </ul>
             </CardContent>
           </Card>
@@ -100,7 +101,11 @@ const RobotPathPlanner = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button size="lg" variant="outline">
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => window.open('https://github.com/marvex-ai/robot-path-docs', '_blank')}
+            >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
             </Button>

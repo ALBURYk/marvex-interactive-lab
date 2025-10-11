@@ -48,11 +48,11 @@ const MLModelPlayground = () => {
               <CardTitle>How to Use</CardTitle>
             </CardHeader>
             <CardContent>
-              <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-                <li>Select a dataset or upload your own (CSV format)</li>
-                <li>Choose model type (e.g., regression, classification)</li>
-                <li>Adjust hyperparameters and run training</li>
-                <li>View accuracy, loss graphs, and confusion matrix</li>
+              <ol className="list-decimal list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Select a dataset or upload your own (CSV format)</li>
+                <li className="text-base">Choose model type (e.g., regression, classification)</li>
+                <li className="text-base">Adjust hyperparameters and run training</li>
+                <li className="text-base">View accuracy, loss graphs, and confusion matrix</li>
               </ol>
             </CardContent>
           </Card>
@@ -74,10 +74,11 @@ const MLModelPlayground = () => {
               <CardTitle>Documentation & Tutorial</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                <li>Quickstart PDF</li>
-                <li>Sample datasets provided</li>
-                <li>Link to GitHub and code examples</li>
+              <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
+                <li className="text-base">Quickstart PDF</li>
+                <li className="text-base">Sample datasets provided</li>
+                <li className="text-base">Link to GitHub and code examples</li>
+                <li className="text-base font-medium text-foreground">When you launch the tool, you'll need to provide your app link to get started</li>
               </ul>
             </CardContent>
           </Card>
@@ -100,7 +101,11 @@ const MLModelPlayground = () => {
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
-            <Button size="lg" variant="outline">
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => window.open('https://github.com/marvex-ai/ml-playground-docs', '_blank')}
+            >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
             </Button>
