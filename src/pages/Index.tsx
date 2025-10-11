@@ -100,7 +100,7 @@ const Index = () => {
               <Button 
                 variant="hero" 
                 size="lg" 
-                className="text-lg shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.7)] animate-glow"
+                className="text-lg shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.7)]"
                 onClick={handleExploreTools}
                 title="Try out our AI and robotics tools — fully interactive and ready to use"
               >
