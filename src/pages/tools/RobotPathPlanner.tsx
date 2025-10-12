@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Bot, ArrowLeft, Play, BookOpen } from "lucide-react";
+import { Bot, ArrowLeft, Play, BookOpen, Download, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const RobotPathPlanner = () => {
   const navigate = useNavigate();
@@ -97,6 +98,57 @@ const RobotPathPlanner = () => {
                 <li>Do not use for weaponized robotics or surveillance</li>
                 <li>Comply with all local and international robotics safety laws</li>
               </ul>
+            </CardContent>
+          </Card>
+
+          <Card className={`mb-6 ${!agreedToTerms ? 'opacity-50' : ''}`}>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                {!agreedToTerms && <Lock className="h-5 w-5" />}
+                Download Tool Package
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                {agreedToTerms 
+                  ? "Choose your platform to download the Robot Path Planner tool package."
+                  : "Accept the terms and restrictions above to unlock downloads."}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  disabled={!agreedToTerms}
+                  onClick={() => {
+                    toast.success("Downloading Windows package...");
+                  }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Windows
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  disabled={!agreedToTerms}
+                  onClick={() => {
+                    toast.success("Downloading macOS package...");
+                  }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  macOS
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  disabled={!agreedToTerms}
+                  onClick={() => {
+                    toast.success("Downloading Linux package...");
+                  }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Linux
+                </Button>
+              </div>
             </CardContent>
           </Card>
 
