@@ -1,11 +1,18 @@
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Cpu, ArrowLeft, Play, BookOpen } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Cpu, ArrowLeft, Play, BookOpen, Download, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const ComputerVisionStudio = () => {
   const navigate = useNavigate();
+  const [showTermsDialog, setShowTermsDialog] = useState(false);
+  const [hasAgreed, setHasAgreed] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -96,8 +103,68 @@ const ComputerVisionStudio = () => {
             </CardContent>
           </Card>
 
+          <Card className={`mb-6 ${!agreedToTerms ? 'opacity-50' : ''}`}>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                {!agreedToTerms && <Lock className="h-5 w-5" />}
+                Download Tool Package
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                {agreedToTerms 
+                  ? "Choose your platform to download the Computer Vision Studio tool package."
+                  : "Accept the terms and restrictions above to unlock downloads."}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  disabled={!agreedToTerms}
+                  onClick={() => {
+                    toast.success("Downloading Windows package...");
+                  }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Windows
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  disabled={!agreedToTerms}
+                  onClick={() => {
+                    toast.success("Downloading macOS package...");
+                  }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  macOS
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  disabled={!agreedToTerms}
+                  onClick={() => {
+                    toast.success("Downloading Linux package...");
+                  }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Linux
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
           <div className="flex gap-4">
-            <Button size="lg" className="flex-1">
+            <Button 
+              size="lg" 
+              className="flex-1"
+              disabled={!agreedToTerms}
+              onClick={() => {
+                if (agreedToTerms) {
+                  window.alert("Tool launching... Please provide your MarVex app link when prompted.");
+                }
+              }}
+            >
               <Play className="h-4 w-4 mr-2" />
               Launch Tool
             </Button>
@@ -110,6 +177,48 @@ const ComputerVisionStudio = () => {
               View Docs
             </Button>
           </div>
+
+          {!agreedToTerms && (
+            <div className="mt-4 p-4 bg-muted rounded-lg">
+              <div className="flex items-start gap-3">
+                <Checkbox 
+                  id="agree-terms" 
+                  checked={hasAgreed}
+                  onCheckedChange={(checked) => setHasAgreed(checked as boolean)}
+                />
+                <label 
+                  htmlFor="agree-terms" 
+                  className="text-sm cursor-pointer leading-relaxed"
+                >
+                  I have read and agree to the restrictions and rules outlined above. I understand this tool must be used ethically and responsibly.
+                </label>
+              </div>
+              <Button 
+                className="w-full mt-4" 
+                disabled={!hasAgreed}
+                onClick={() => {
+                  setAgreedToTerms(true);
+                  setShowTermsDialog(true);
+                }}
+              >
+                I Agree - Unlock Launch Tool
+              </Button>
+            </div>
+          )}
+
+          <Dialog open={showTermsDialog} onOpenChange={setShowTermsDialog}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Terms Accepted</DialogTitle>
+                <DialogDescription>
+                  You can now launch the Computer Vision Studio tool and download packages. The Launch Tool button is now enabled.
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter>
+                <Button onClick={() => setShowTermsDialog(false)}>Got it</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
 
