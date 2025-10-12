@@ -6,10 +6,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Cpu, ArrowLeft, Play, BookOpen, Download, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
 const ComputerVisionStudio = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [showTermsDialog, setShowTermsDialog] = useState(false);
   const [hasAgreed, setHasAgreed] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -160,6 +162,11 @@ const ComputerVisionStudio = () => {
               className="flex-1"
               disabled={!agreedToTerms}
               onClick={() => {
+                if (!user) {
+                  toast.error("Please sign in to launch tools");
+                  navigate("/auth");
+                  return;
+                }
                 if (agreedToTerms) {
                   window.alert("Tool launching... Please provide your MarVex app link when prompted.");
                 }
