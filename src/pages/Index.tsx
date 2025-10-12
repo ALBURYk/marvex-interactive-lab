@@ -20,13 +20,25 @@ const Index = () => {
   };
 
   const handleExploreTools = () => {
-    const toolsSection = document.getElementById("tools");
-    toolsSection?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("tools");
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const handleStartLearning = () => {
-    const learnSection = document.getElementById("learn");
-    learnSection?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("learn");
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
   };
   const featuredTools = [
     {
@@ -127,7 +139,7 @@ const Index = () => {
       </section>
 
       {/* Featured Tools Section */}
-      <section id="tools" className="py-20 bg-gradient-subtle">
+      <section id="tools" className="py-20 bg-gradient-subtle scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Featured Tools</h2>
@@ -153,7 +165,7 @@ const Index = () => {
       </section>
 
       {/* Learn Section */}
-      <section id="learn" className="py-20">
+      <section id="learn" className="py-20 scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -199,7 +211,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-subtle">
+      <section id="about" className="py-20 bg-gradient-subtle scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">About MarVex</h2>
