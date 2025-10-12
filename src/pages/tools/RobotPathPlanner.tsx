@@ -102,7 +102,7 @@ const RobotPathPlanner = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.open("https://github.com/marvex-ai/robot-path-docs", "_blank")}
+              onClick={() => window.open("https://github.com/ALBURYk/robot-path-docs", "_blank")}
             >
               <BookOpen className="h-4 w-4 mr-2" />
               View Docs
