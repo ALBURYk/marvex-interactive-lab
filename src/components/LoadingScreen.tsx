@@ -13,15 +13,15 @@ export const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => 
       setCurrentMessage((prev) => (prev + 1) % messages.length);
     }, 800);
 
-    // Start exit animation after 3 seconds
+    // Start exit animation after 5 seconds
     const exitTimer = setTimeout(() => {
       setIsExiting(true);
-    }, 3000);
+    }, 5000);
 
     // Complete loading after exit animation
     const completeTimer = setTimeout(() => {
       onLoadingComplete();
-    }, 3800);
+    }, 5800);
 
     return () => {
       clearInterval(messageInterval);
