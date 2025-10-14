@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { ToolCard } from "@/components/ToolCard";
 import { Button } from "@/components/ui/button";
 import { Brain, Cpu, Bot, Zap, BookOpen, Sparkles } from "lucide-react";
@@ -10,6 +12,23 @@ import { toast } from "sonner";
 const Index = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasShownLoading, setHasShownLoading] = useState(false);
+
+  useEffect(() => {
+    // Check if loading screen was already shown in this session
+    const loadingShown = sessionStorage.getItem("loadingShown");
+    if (loadingShown) {
+      setIsLoading(false);
+      setHasShownLoading(true);
+    }
+  }, []);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    setHasShownLoading(true);
+    sessionStorage.setItem("loadingShown", "true");
+  };
 
   const handleGetStarted = () => {
     if (user) {
@@ -77,6 +96,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {isLoading && !hasShownLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <Navigation />
       
       {/* Hero Section */}
