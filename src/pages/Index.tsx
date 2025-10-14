@@ -13,21 +13,9 @@ const Index = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-  const [hasShownLoading, setHasShownLoading] = useState(false);
-
-  useEffect(() => {
-    // Check if loading screen was already shown in this session
-    const loadingShown = sessionStorage.getItem("loadingShown");
-    if (loadingShown) {
-      setIsLoading(false);
-      setHasShownLoading(true);
-    }
-  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    setHasShownLoading(true);
-    sessionStorage.setItem("loadingShown", "true");
   };
 
   const handleGetStarted = () => {
@@ -96,7 +84,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {isLoading && !hasShownLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <Navigation />
       
       {/* Hero Section */}
