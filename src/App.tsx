@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import Tutorials from "./pages/Tutorials";
 import NeuralNetworkVisualizer from "./pages/tools/NeuralNetworkVisualizer";
 import RobotPathPlanner from "./pages/tools/RobotPathPlanner";
 import ComputerVisionStudio from "./pages/tools/ComputerVisionStudio";
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/tutorials" element={<Tutorials />} />
             <Route path="/tools/neural-network" element={<NeuralNetworkVisualizer />} />
             <Route path="/tools/robot-path" element={<RobotPathPlanner />} />
             <Route path="/tools/computer-vision" element={<ComputerVisionStudio />} />

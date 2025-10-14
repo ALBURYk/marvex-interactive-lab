@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { Brain, LogOut } from "lucide-react";
+import { Brain, LogOut, BookOpen, ArrowLeft } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  const isTutorialsPage = location.pathname === "/tutorials";
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -32,27 +35,44 @@ export const Navigation = () => {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-6">
-            <a 
-              href="#tools" 
-              onClick={(e) => handleSmoothScroll(e, 'tools')}
-              className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-            >
-              Tools
-            </a>
-            <a 
-              href="#learn" 
-              onClick={(e) => handleSmoothScroll(e, 'learn')}
-              className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-            >
-              Learn
-            </a>
-            <a 
-              href="#about" 
-              onClick={(e) => handleSmoothScroll(e, 'about')}
-              className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
-            >
-              About
-            </a>
+            {!isTutorialsPage && (
+              <>
+                <a 
+                  href="#tools" 
+                  onClick={(e) => handleSmoothScroll(e, 'tools')}
+                  className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                >
+                  Tools
+                </a>
+                <a 
+                  href="#learn" 
+                  onClick={(e) => handleSmoothScroll(e, 'learn')}
+                  className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                >
+                  Learn
+                </a>
+                <a 
+                  href="#about" 
+                  onClick={(e) => handleSmoothScroll(e, 'about')}
+                  className="text-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                >
+                  About
+                </a>
+              </>
+            )}
+            
+            {isTutorialsPage ? (
+              <Button variant="outline" size="sm" onClick={() => navigate("/")}>
+                <ArrowLeft className="h-4 w-4" />
+                Go Back
+              </Button>
+            ) : (
+              <Button variant="outline" size="sm" onClick={() => navigate("/tutorials")}>
+                <BookOpen className="h-4 w-4" />
+                Tutorials
+              </Button>
+            )}
+            
             {user ? (
               <Button variant="outline" size="sm" onClick={signOut}>
                 <LogOut className="h-4 w-4" />
