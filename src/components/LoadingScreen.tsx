@@ -11,7 +11,7 @@ export const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => 
     // Rotate messages
     const messageInterval = setInterval(() => {
       setCurrentMessage((prev) => (prev + 1) % messages.length);
-    }, 800);
+    }, 1200);
 
     // Start exit animation after 5 seconds
     const exitTimer = setTimeout(() => {
@@ -21,7 +21,7 @@ export const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => 
     // Complete loading after exit animation
     const completeTimer = setTimeout(() => {
       onLoadingComplete();
-    }, 5800);
+    }, 6200);
 
     return () => {
       clearInterval(messageInterval);
@@ -32,7 +32,7 @@ export const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => 
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-800 ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-1200 ${
         isExiting ? "opacity-0" : "opacity-100"
       }`}
     >
@@ -46,21 +46,26 @@ export const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => 
         </div>
       </div>
 
-      {/* MarVex Text */}
-      <h1 className="text-6xl font-bold mb-8 animate-fade-in">
-        Mar<span className="text-primary drop-shadow-[0_0_25px_hsl(var(--primary))] animate-glow">Vex</span>
+      {/* MarVex Text with Animation */}
+      <h1 className="text-6xl font-bold mb-8">
+        <span className="inline-block animate-fade-in" style={{ animationDelay: "0ms", animationDuration: "1s" }}>
+          Mar
+        </span>
+        <span className="inline-block text-primary drop-shadow-[0_0_25px_hsl(var(--primary))] animate-glow animate-scale-in" style={{ animationDelay: "300ms", animationDuration: "1.2s" }}>
+          Vex
+        </span>
       </h1>
 
       {/* Loading Spinner */}
       <div className="flex gap-2 mb-8">
-        <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-        <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-        <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+        <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "0ms", animationDuration: "1s" }} />
+        <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "200ms", animationDuration: "1s" }} />
+        <div className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: "400ms", animationDuration: "1s" }} />
       </div>
 
       {/* Rotating Messages */}
-      <div className="text-xl font-medium text-muted-foreground min-h-[2rem] animate-fade-in">
-        <span key={currentMessage} className="inline-block animate-scale-in">
+      <div className="text-xl font-medium text-muted-foreground min-h-[2rem]">
+        <span key={currentMessage} className="inline-block animate-scale-in" style={{ animationDuration: "0.8s" }}>
           {messages[currentMessage]}
         </span>
       </div>
