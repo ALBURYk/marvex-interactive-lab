@@ -33,7 +33,7 @@ export const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => 
   return (
     <div
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-1200 ${
-        isExiting ? "opacity-0" : "opacity-100"
+        isExiting ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
       {/* Animated Logo */}
